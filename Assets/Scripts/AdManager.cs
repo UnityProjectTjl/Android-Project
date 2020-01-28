@@ -12,25 +12,23 @@ public class AdManager : MonoBehaviour
     {
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(initStatus => { });
-
-        this.RequestInterstitial();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameOver();
+       
     }
 
-    private void RequestInterstitial()
+    public void RequestInterstitial()
     {
         #if UNITY_ANDROID
                 string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-#elif UNITY_IPHONE
+        #elif UNITY_IPHONE
                 string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-#else
+        #else
                 string adUnitId = "unexpected_platform";
-#endif
+        #endif
 
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
