@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class AdManager : MonoBehaviour
     {
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(initStatus => { });
+
+        this.RequestInterstitial();
     }
 
     // Update is called once per frame
@@ -20,7 +23,7 @@ public class AdManager : MonoBehaviour
        
     }
 
-    public void RequestInterstitial()
+    private void RequestInterstitial()
     {
         #if UNITY_ANDROID
                 string adUnitId = "ca-app-pub-3940256099942544/1033173712";
@@ -36,15 +39,15 @@ public class AdManager : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         this.interstitial.LoadAd(request);
-
-        GameOver();
     }
 
-    private void GameOver()
+    public void GameOver(int levelId)
     {
         if (this.interstitial.IsLoaded())
         {
             this.interstitial.Show();
         }
+
+        SceneManager.LoadScene("Level" + levelId);
     }
 }
