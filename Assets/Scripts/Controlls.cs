@@ -27,7 +27,7 @@ public class Controlls : MonoBehaviour
                 if (distance.x >= toleranz)
                 {
                     //Spieler nach rechts bewegen
-                    rb2d.velocity = new Vector2(speed, 0);
+                    rb2d.AddForce(new Vector2(jumpspeed, 0), ForceMode2D.Impulse);
                 }
 
 
@@ -39,7 +39,7 @@ public class Controlls : MonoBehaviour
                 if (distance.x <= -toleranz)
                 {
                     //nach links bewegen
-                    rb2d.velocity = new Vector2(-speed, 0);
+                    rb2d.AddForce(new Vector2(-jumpspeed, 0), ForceMode2D.Impulse);
                 }
 
             }
