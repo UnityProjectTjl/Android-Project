@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37811e689ef6d534cb97bc5da4dbb32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyButton: {fileID: 0}
+  buyButton: {fileID: 576992798}
 --- !u!1 &1010467018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5199,7 +5199,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1419125992}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1419125994}
+        m_MethodName: SchowLastImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1419125992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5248,7 +5259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d27618a3aaec9746b2849019298d86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skins: []
+  skins:
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 52a6cd5527b361040ab5a3688b1531f8, type: 3}
+  - {fileID: 21300000, guid: 9476ac22266ec4744b8014b646160cfc, type: 3}
+  colors: []
+  vorschau: {fileID: 1954263701}
 --- !u!1 &1458704766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5490,7 +5506,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1680050069}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1680050071}
+        m_MethodName: ShowNextImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1680050069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5540,9 +5567,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 52a6cd5527b361040ab5a3688b1531f8, type: 3}
+  - {fileID: 21300000, guid: 9476ac22266ec4744b8014b646160cfc, type: 3}
+  colors: []
+  vorschau: {fileID: 1954263701}
 --- !u!1 &1682184382
 GameObject:
   m_ObjectHideFlags: 0

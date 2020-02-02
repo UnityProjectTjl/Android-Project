@@ -7,7 +7,7 @@ public class ImageSwitcher : MonoBehaviour
 
     public Sprite[] skins;
     public Color[] colors;
-    int ImageIndex = 0;
+    int ImageIndex = -1;
     public GameObject vorschau;
     SpriteRenderer vorschauSprite;
     // Start is called before the first frame update
@@ -25,22 +25,30 @@ public class ImageSwitcher : MonoBehaviour
     }
     public void ShowNextImage()
     {
-        if (ImageIndex > skins.Length)
+        if (ImageIndex < skins.Length)
         {
             //Ersten Skin laden
            
+           
         }
-      
+        ImageIndex++;
+        vorschauSprite.sprite = skins[ImageIndex];
+        Debug.Log(ImageIndex);
+       // vorschauSprite.color = new Color(0f, 0f, 0f, 0f);
+
     }
     public void SchowLastImage()
     {
         if (ImageIndex >= 1)
         {
             //normal ein Bild zurückgehen
+           
         }
         else
         {
             //Nichts machen oder letzten Sprite anzeigen
         }
+        ImageIndex++;
+        vorschauSprite.sprite = skins[ImageIndex];
     }
 }
