@@ -5,12 +5,17 @@ using UnityEngine;
 public class ImageSwitcher : MonoBehaviour
 {
 
-    public Material[] skins;
-    int ImageIndex = 1;
+    public Sprite[] skins;
+    public Color[] colors;
+    int ImageIndex = 0;
+    public GameObject vorschau;
+    SpriteRenderer vorschauSprite;
     // Start is called before the first frame update
+  
     void Start()
     {
-        
+        vorschauSprite = vorschau.GetComponent<SpriteRenderer>();
+       
     }
 
     // Update is called once per frame
@@ -20,17 +25,22 @@ public class ImageSwitcher : MonoBehaviour
     }
     public void ShowNextImage()
     {
-
+        if (ImageIndex > skins.Length)
+        {
+            //Ersten Skin laden
+           
+        }
+      
     }
     public void SchowLastImage()
     {
         if (ImageIndex >= 1)
         {
-
+            //normal ein Bild zurückgehen
         }
         else
         {
-
+            //Nichts machen oder letzten Sprite anzeigen
         }
     }
 }
