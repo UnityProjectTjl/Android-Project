@@ -9,6 +9,12 @@ public class Points : MonoBehaviour
     private int score = 0;
     public GameObject checkpoint, player;
     public AdManager adManager;
+    private int levelId;
+
+    public Points()
+    {
+        levelId = 1;
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -26,14 +32,12 @@ public class Points : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             score++;
-            points.text = "Punkte: " + score;
+            points.text = "Coins: " + score;
             player.transform.position = checkpoint.transform.position;
         }
 
         if (score == 3)
         {
-            int levelId = 1;
-
             levelId++;
 
             adManager.GameOver(levelId);
