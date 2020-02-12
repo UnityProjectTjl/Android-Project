@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class Points : MonoBehaviour
 {
     public Text points;
-    private int score = 0;
+    private int score;
     public GameObject checkpoint, player;
     public AdManager adManager;
     private int levelId;
+
+    public float targetTime = 30.0f;
 
     public Points()
     {
@@ -25,14 +27,24 @@ public class Points : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        targetTime -= Time.deltaTime;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            score++;
-            points.text = "Coins: " + score;
+            if (targetTime >= 15.0f)
+            {
+                score = +100;
+            } else if (targetTime >= 5.0f)
+            {
+                score = +50;
+            } else
+            {
+                score++;
+            }
+
+            points.text = score.ToString();
             player.transform.position = checkpoint.transform.position;
         }
 
