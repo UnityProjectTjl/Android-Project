@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Points : MonoBehaviour
+public class InGameManager : MonoBehaviour
 {
     public Text points;
     private int score;
@@ -11,17 +11,17 @@ public class Points : MonoBehaviour
     public AdManager adManager;
     private int levelId;
 
-    public float targetTime = 30.0f;
+    public float targetTime;
 
-    public Points()
+    public InGameManager()
     {
-        levelId = 1;
+
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -35,21 +35,24 @@ public class Points : MonoBehaviour
         {
             if (targetTime >= 15.0f)
             {
+                score = +1000;
+            }
+            else if (targetTime >= 10.0f)
+            {
+                score = +850;
+            }
+            else if (targetTime >= 5.0f)
+            {
+                score = +350;
+            }
+            else
+            {
                 score = +100;
-            } else if (targetTime >= 5.0f)
-            {
-                score = +50;
-            } else
-            {
-                score++;
             }
 
             points.text = score.ToString();
             player.transform.position = checkpoint.transform.position;
-        }
 
-        if (score == 3)
-        {
             levelId++;
 
             adManager.GameOver(levelId);
