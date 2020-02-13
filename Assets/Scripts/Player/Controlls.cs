@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controlls : MonoBehaviour
 {
@@ -180,5 +181,16 @@ public class Controlls : MonoBehaviour
 
         }
 
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MainMenu");
+
+                return;
+            }
+        }
+       
     }
+   
 }

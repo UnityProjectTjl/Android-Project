@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class InGameManager : MonoBehaviour
 {
     public Text points;
-    private int score;
     public GameObject checkpoint, player;
     public AdManager adManager;
     private int levelId;
+    private int coins;
 
     public float targetTime;
 
@@ -21,13 +21,17 @@ public class InGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        coins = PlayerPrefs.GetInt("Coins");
+        levelId = PlayerPrefs.GetInt("LevelId");
     }
 
     // Update is called once per frame
     void Update()
     {
         targetTime -= Time.deltaTime;
+
+        coins = PlayerPrefs.GetInt("Coins");
+        points.text = coins.ToString();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,27 +39,34 @@ public class InGameManager : MonoBehaviour
         {
             if (targetTime >= 15.0f)
             {
-                score = +1000;
+                coins += 1000;
+
+                PlayerPrefs.SetInt("Coins", coins);
             }
             else if (targetTime >= 10.0f)
             {
-                score = +850;
+                coins += 850;
+
+                PlayerPrefs.SetInt("Coins", coins);
             }
             else if (targetTime >= 5.0f)
             {
-                score = +350;
+                coins += 350;
+
+                PlayerPrefs.SetInt("Coins", coins);
             }
             else
             {
-                score = +100;
+                coins += 100;
+
+                PlayerPrefs.SetInt("Coins", coins);
             }
 
-            points.text = score.ToString();
-            player.transform.position = checkpoint.transform.position;
+            levelId += 1;
 
-            levelId++;
+            PlayerPrefs.SetInt("LevelId", levelId);
 
-            adManager.GameOver(levelId);
+            adManager.GameOver();
         }
     }
 }

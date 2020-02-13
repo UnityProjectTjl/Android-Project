@@ -41,13 +41,13 @@ public class AdManager : MonoBehaviour
         this.interstitial.LoadAd(request);
     }
 
-    public void GameOver(int levelId)
+    public void GameOver()
     {
         if (this.interstitial.IsLoaded())
         {
             this.interstitial.Show();
         }
 
-        SceneManager.LoadScene("Level" + levelId);
+        SceneManager.LoadScene("GameOverScreen");
     }
 }
