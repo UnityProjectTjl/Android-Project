@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Screens/Tutorial.unity
     guid: 4f5e54bccfe15a3458f6089da2257e91
+  - enabled: 1
+    path: Assets/Scenes/Screens/GameOverScreen.unity
+    guid: 832723a8cb7871a4ba88ebae9549317b
   m_configObjects: {}
