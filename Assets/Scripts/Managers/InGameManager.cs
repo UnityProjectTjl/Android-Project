@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameManager : MonoBehaviour
 {
     public Text points;
     public GameObject checkpoint, player;
-    public AdManager adManager;
-    private int levelId;
     private int coins;
 
     public float targetTime;
@@ -22,7 +21,6 @@ public class InGameManager : MonoBehaviour
     void Start()
     {
         coins = PlayerPrefs.GetInt("Coins");
-        levelId = PlayerPrefs.GetInt("LevelId");
     }
 
     // Update is called once per frame
@@ -62,11 +60,7 @@ public class InGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Coins", coins);
             }
 
-            levelId += 1;
-
-            PlayerPrefs.SetInt("LevelId", levelId);
-
-            adManager.GameOver();
+            FindObjectOfType<AdManager>().GameOver();
         }
     }
 }

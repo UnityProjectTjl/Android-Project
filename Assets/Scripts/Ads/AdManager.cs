@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class AdManager : MonoBehaviour
 {
     private InterstitialAd interstitial;
+    public GameObject gameOverUI;
+    private int activeScene;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,10 @@ public class AdManager : MonoBehaviour
         MobileAds.Initialize(initStatus => { });
 
         this.RequestInterstitial();
+
+        gameOverUI.SetActive(false);
+
+        activeScene = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -43,11 +49,24 @@ public class AdManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOverUI.SetActive(true);
+
+        //Load Ad
         if (this.interstitial.IsLoaded())
         {
             this.interstitial.Show();
         }
+    }
 
-        SceneManager.LoadScene("GameOverScreen");
+    public void LoadNextLevel()
+    {
+        if (activeScene > 4)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level" + activeScene);
+        }
     }
 }

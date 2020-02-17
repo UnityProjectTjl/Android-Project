@@ -5654,7 +5654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 8ed8946c3b7251840b230ef75e9d60d3, type: 3}
   - {fileID: 21300000, guid: 52a6cd5527b361040ab5a3688b1531f8, type: 3}
   - {fileID: 21300000, guid: 9476ac22266ec4744b8014b646160cfc, type: 3}
   colors: []
@@ -6041,7 +6041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 3}
+  - {fileID: 21300000, guid: 8ed8946c3b7251840b230ef75e9d60d3, type: 3}
   - {fileID: 21300000, guid: 52a6cd5527b361040ab5a3688b1531f8, type: 3}
   - {fileID: 21300000, guid: 9476ac22266ec4744b8014b646160cfc, type: 3}
   colors: []
@@ -6470,7 +6470,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8ed8946c3b7251840b230ef75e9d60d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
