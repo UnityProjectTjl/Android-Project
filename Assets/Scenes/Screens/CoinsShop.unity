@@ -691,7 +691,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053869192}
-        m_MethodName: UserChoseToWatchAd
+        m_MethodName: CoinsAd10000Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053869192}
-        m_MethodName: UserChoseToWatchAd
+        m_MethodName: CoinsAd5000Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1567,7 +1567,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053869192}
-        m_MethodName: UserChoseToWatchAd
+        m_MethodName: CoinsAd1000Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1835,6 +1835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66ef30b1af8c1a40982234d87583d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyButton1: {fileID: 1682760579}
+  buyButton2: {fileID: 1362842657}
+  buyButton3: {fileID: 942820387}
 --- !u!4 &2053869193
 Transform:
   m_ObjectHideFlags: 0

@@ -21,8 +21,9 @@ public class Coins : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Coins")
+        if (collision.gameObject.CompareTag("Coins"))
         {
+            Destroy(collision.gameObject);
             score++;
             points.text = score.ToString();
         }

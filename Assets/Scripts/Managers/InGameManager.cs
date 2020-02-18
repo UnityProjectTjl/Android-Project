@@ -37,30 +37,42 @@ public class InGameManager : MonoBehaviour
         {
             if (targetTime >= 15.0f)
             {
-                coins += 1000;
+                coins += 500;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
             else if (targetTime >= 10.0f)
             {
-                coins += 850;
+                coins += 250;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
             else if (targetTime >= 5.0f)
             {
-                coins += 350;
+                coins += 100;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
             else
             {
-                coins += 100;
+                coins += 50;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
 
             FindObjectOfType<AdManager>().GameOver();
         }
+    }
+
+    public void CoinCollected()
+    {
+        coins += 1;
+
+        PlayerPrefs.SetInt("Coins", coins);
+    }
+
+    public void AddCoins(int coins)
+    {
+        PlayerPrefs.SetInt("Coins", coins);
     }
 }
