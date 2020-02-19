@@ -60,7 +60,7 @@ public class AdManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (activeScene > 4)
+        if (activeScene > 8)
         {
             SceneManager.LoadScene("MainMenu");
         }
