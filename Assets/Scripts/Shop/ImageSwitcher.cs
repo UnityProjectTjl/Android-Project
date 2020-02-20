@@ -32,7 +32,7 @@ public class ImageSwitcher : MonoBehaviour
         if (ImageIndex <= skins.Length)
         {
             //Ersten Skin laden
-            ImageIndex += 1;
+            ImageIndex++;
             vorschauSprite.sprite = skins[ImageIndex];
 
             Debug.Log(ImageIndex);
@@ -59,9 +59,18 @@ public class ImageSwitcher : MonoBehaviour
     }
     public void SchowLastImage()
     {
-        ImageIndex -= 1;
-        vorschauSprite.sprite = skins[ImageIndex];
+        if (ImageIndex <= skins.Length)
+        {
+            //Ersten Skin laden
+            ImageIndex--;
+            vorschauSprite.sprite = skins[ImageIndex];
 
-        Debug.Log(ImageIndex);
+            Debug.Log(ImageIndex);
+            // vorschauSprite.color = new Color(0f, 0f, 0f, 0f);
+        }
+        else
+        {
+            //Nichts machen oder letzten Sprite anzeigen
+        }
     }
 }

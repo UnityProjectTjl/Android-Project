@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AdManager : MonoBehaviour
 {
     private InterstitialAd interstitial;
     public GameObject gameOverUI;
+    public Text buttonText;
     private int activeScene;
 
     // Start is called before the first frame update
@@ -21,6 +23,11 @@ public class AdManager : MonoBehaviour
         gameOverUI.SetActive(false);
 
         activeScene = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (activeScene > 8)
+        {
+            buttonText.text = "Zurück zum Menü";
+        }
     }
 
     // Update is called once per frame
@@ -51,10 +58,16 @@ public class AdManager : MonoBehaviour
     {
         gameOverUI.SetActive(true);
 
-        //Load Ad
-        if (this.interstitial.IsLoaded())
+        PlayerPrefs.SetInt("levelReached", activeScene);
+        int adActivated = PlayerPrefs.GetInt("adActivated");
+
+        if (adActivated == 1)
         {
-            this.interstitial.Show();
+            //Load Ad
+            if (this.interstitial.IsLoaded())
+            {
+                this.interstitial.Show();
+            }
         }
     }
 

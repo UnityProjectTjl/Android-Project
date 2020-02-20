@@ -18,6 +18,9 @@ public class btnQuit : MonoBehaviour
     }
     public void Quit()
     {
+        //Deactivate without Ad Session
+        PlayerPrefs.SetInt("adActivated", 1);
+
         Application.Quit();
     }
 }
