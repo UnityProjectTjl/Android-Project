@@ -200,5 +200,10 @@ public class Controlls : MonoBehaviour
             Destroy(collision.gameObject);
             FindObjectOfType<InGameManager>().CoinCollected();
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            FindObjectOfType<InGameManager>().PlayerKilled();
+        }
     }
 }

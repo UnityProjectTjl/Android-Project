@@ -6368,6 +6368,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6178362304715107539, guid: 8d92afe8b8bec0547997853cbb82d89e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6178362304715108141, guid: 8d92afe8b8bec0547997853cbb82d89e,
         type: 3}
       propertyPath: m_Name
@@ -6590,7 +6595,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 432703018543b6c42b8a3562965f0c9a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &1078713428
 SpriteRenderer:
@@ -6650,7 +6655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078713424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.27, y: -3.35, z: 0}
+  m_LocalPosition: {x: -8.29, y: -1.48, z: 0}
   m_LocalScale: {x: 2.7419, y: 2.7419, z: 2.7419}
   m_Children:
   - {fileID: 1938186957}
@@ -6718,6 +6723,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178362304715107539, guid: 8d92afe8b8bec0547997853cbb82d89e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178362304715107539, guid: 8d92afe8b8bec0547997853cbb82d89e,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178362304715108140, guid: 8d92afe8b8bec0547997853cbb82d89e,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178362304715108140, guid: 8d92afe8b8bec0547997853cbb82d89e,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178362304715108140, guid: 8d92afe8b8bec0547997853cbb82d89e,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6178362304715108141, guid: 8d92afe8b8bec0547997853cbb82d89e,
         type: 3}

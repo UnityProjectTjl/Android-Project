@@ -75,4 +75,12 @@ public class InGameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Coins", coins);
     }
+
+    public void PlayerKilled()
+    {
+        player.transform.position = checkpoint.transform.position;
+
+        coins -= 100;
+        PlayerPrefs.SetInt("Coins", coins);
+    }
 }
