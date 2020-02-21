@@ -15,9 +15,9 @@ public class RewardedAdManager : MonoBehaviour
     {
         string adUnitId;
         #if UNITY_ANDROID
-                adUnitId = "ca-app-pub-3940256099942544/5224354917";
+                adUnitId = "ca-app-pub-3863359337972172/8605340377";
         #elif UNITY_IPHONE
-                    adUnitId = "ca-app-pub-3940256099942544/1712485313";
+                    adUnitId = "ca-app-pub-3863359337972172/8605340377";
         #else
                     adUnitId = "unexpected_platform";
         #endif

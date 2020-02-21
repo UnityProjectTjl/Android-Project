@@ -39,9 +39,9 @@ public class AdManager : MonoBehaviour
     private void RequestInterstitial()
     {
         #if UNITY_ANDROID
-                string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+                string adUnitId = "ca-app-pub-3863359337972172/1628198638";
         #elif UNITY_IPHONE
-                string adUnitId = "ca-app-pub-3940256099942544/1033173712";
+                string adUnitId = "ca-app-pub-3863359337972172/1628198638";
         #else
                 string adUnitId = "unexpected_platform";
         #endif
