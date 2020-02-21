@@ -187,6 +187,8 @@ public class Controlls : MonoBehaviour
             {
                 SceneManager.LoadScene("MainMenu");
 
+                PlayerPrefs.SetInt("adActivated", 1);
+
                 return;
             }
         }
