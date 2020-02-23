@@ -19,6 +19,8 @@ public class ImageSwitcher : MonoBehaviour
     void Start()
     {
         vorschauSprite = vorschau.GetComponent<SpriteRenderer>();
+        Debug.Log(ImageIndex);
+        vorschauSprite.sprite = skins[0];
        
     }
 
@@ -29,13 +31,13 @@ public class ImageSwitcher : MonoBehaviour
     }
     public void ShowNextImage()
     {
-        if (ImageIndex <= skins.Length)
+        if (this.ImageIndex <= skins.Length)
         {
             //Ersten Skin laden
-            ImageIndex++;
-            vorschauSprite.sprite = skins[ImageIndex];
+            this.ImageIndex++;
+            vorschauSprite.sprite = skins[this.ImageIndex];
 
-            Debug.Log(ImageIndex);
+            Debug.Log(this.ImageIndex);
             // vorschauSprite.color = new Color(0f, 0f, 0f, 0f);
         }
         else
@@ -43,7 +45,7 @@ public class ImageSwitcher : MonoBehaviour
             //Nichts machen oder letzten Sprite anzeigen
         }
 
-        switch (ImageIndex)
+        switch (this.ImageIndex)
         {
             case 0:
                 costText.text = "800";
@@ -59,18 +61,30 @@ public class ImageSwitcher : MonoBehaviour
     }
     public void SchowLastImage()
     {
-        if (ImageIndex <= skins.Length)
+        Debug.Log(this.ImageIndex);
+        
+        if (this.ImageIndex > 0)
         {
-            //Ersten Skin laden
-            ImageIndex--;
-            vorschauSprite.sprite = skins[ImageIndex];
+            this.ImageIndex--;
+            vorschauSprite.sprite = skins[this.ImageIndex];
 
-            Debug.Log(ImageIndex);
-            // vorschauSprite.color = new Color(0f, 0f, 0f, 0f);
+            Debug.Log(this.ImageIndex);
         }
         else
         {
             //Nichts machen oder letzten Sprite anzeigen
+       }
+        switch (this.ImageIndex)
+        {
+            case 0:
+                costText.text = "800";
+                break;
+            case 1:
+                costText.text = "1500";
+                break;
+            case 2:
+                costText.text = "3000";
+                break;
         }
     }
 }
