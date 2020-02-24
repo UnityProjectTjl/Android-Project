@@ -380,7 +380,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 8ed8946c3b7251840b230ef75e9d60d3, type: 3}
   - {fileID: 21300000, guid: 52a6cd5527b361040ab5a3688b1531f8, type: 3}
   - {fileID: 21300000, guid: 9476ac22266ec4744b8014b646160cfc, type: 3}
@@ -474,7 +473,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 800
+  m_Text: 0
 --- !u!222 &667347939
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6818,7 +6817,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5, y: 2.5}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

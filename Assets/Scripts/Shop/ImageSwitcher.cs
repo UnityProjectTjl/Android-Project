@@ -51,33 +51,13 @@ public class ImageSwitcher : MonoBehaviour
             //Nichts machen oder letzten Sprite anzeigen
         }
 
-        switch (this.ImageIndex)
-        {
-            case 0:
-                costText.text = "0";
-                buyButton.GetComponentInChildren<Text>().text = "Wählen";
-                break;
-            case 1:
-                costText.text = "800";
-                buyButton.GetComponentInChildren<Text>().text = "Kaufen";
-                break;
-            case 2:
-                costText.text = "1500";
-                buyButton.GetComponentInChildren<Text>().text = "Kaufen";
-                break;
-            case 3:
-                costText.text = "3000";
-                buyButton.GetComponentInChildren<Text>().text = "Kaufen";
-                break;
-        }
-
-        notEnoughText.enabled = false;
+        PrepareShop(this.ImageIndex);
     }
     public void SchowLastImage()
     {
         Debug.Log(this.ImageIndex);
         
-        if (this.ImageIndex > 0)
+        if (this.ImageIndex >= 0)
         {
             this.ImageIndex--;
             vorschauSprite.sprite = skins[this.ImageIndex];
@@ -87,8 +67,14 @@ public class ImageSwitcher : MonoBehaviour
         else
         {
             //Nichts machen oder letzten Sprite anzeigen
-       }
-        switch (this.ImageIndex)
+        }
+
+        PrepareShop(this.ImageIndex);
+    }
+
+    public void PrepareShop(int imageIndex)
+    {
+        switch (imageIndex)
         {
             case 0:
                 costText.text = "0";
@@ -100,10 +86,6 @@ public class ImageSwitcher : MonoBehaviour
                 break;
             case 2:
                 costText.text = "1500";
-                buyButton.GetComponentInChildren<Text>().text = "Kaufen";
-                break;
-            case 3:
-                costText.text = "3000";
                 buyButton.GetComponentInChildren<Text>().text = "Kaufen";
                 break;
         }
@@ -118,16 +100,8 @@ public class ImageSwitcher : MonoBehaviour
         switch (this.ImageIndex)
         {
             case 0:
-                if (coins >= 800)
-                {
-                   
-                    costText.text = "0";
-                    PlayerPrefs.SetInt("Player One", 0);
-                }
-                else
-                {
-                    notEnoughText.enabled = true;
-                }
+                costText.text = "0";
+                PlayerPrefs.SetInt("Player One", 0);
                 break;
             case 1:
                 if (coins >= 800)
@@ -151,20 +125,6 @@ public class ImageSwitcher : MonoBehaviour
 
                     costText.text = "1500";
                     PlayerPrefs.SetInt("Player One", 2);
-                }
-                else
-                {
-                    notEnoughText.enabled = true;
-                }
-                break;
-            case 3:
-                if (coins >= 3000)
-                {
-                    coins -= 3000;
-                    PlayerPrefs.SetInt("Coins", coins);
-
-                    costText.text = "3000";
-                    PlayerPrefs.SetInt("Player One", 3);
                 }
                 else
                 {

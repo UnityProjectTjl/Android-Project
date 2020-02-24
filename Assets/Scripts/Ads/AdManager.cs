@@ -58,6 +58,8 @@ public class AdManager : MonoBehaviour
     {
         gameOverUI.SetActive(true);
 
+
+
         PlayerPrefs.SetInt("levelReached", activeScene);
         int adActivated = PlayerPrefs.GetInt("adActivated");
 
