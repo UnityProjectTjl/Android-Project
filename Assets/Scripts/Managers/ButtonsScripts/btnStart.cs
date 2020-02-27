@@ -16,6 +16,8 @@ public class btnStart : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("level1");
+        int levelReached = PlayerPrefs.GetInt("levelReached") + 1;
+
+        SceneManager.LoadScene("Level" + levelReached);
     }
 }

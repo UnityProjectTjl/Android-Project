@@ -59,9 +59,9 @@ public class InGameManager : MonoBehaviour
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
-
-            FindObjectOfType<AdManager>().GameOver();
         }
+
+        FindObjectOfType<AdManager>().GameOver();
     }
 
     public void CoinCollected()
