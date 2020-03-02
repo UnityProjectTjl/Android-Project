@@ -58,9 +58,14 @@ public class AdManager : MonoBehaviour
     {
         gameOverUI.SetActive(true);
 
+        int levelPlayed = PlayerPrefs.GetInt("levelPlayed");
 
+        if (levelPlayed != 1)
+        {
+            PlayerPrefs.SetInt("levelReached", activeScene);
+            PlayerPrefs.SetInt("levelPlayed", 1);
+        }
 
-        PlayerPrefs.SetInt("levelReached", activeScene);
         int adActivated = PlayerPrefs.GetInt("adActivated");
 
         if (adActivated == 1)
@@ -75,7 +80,7 @@ public class AdManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (activeScene > 9)
+        if (activeScene > 8)
         {
             SceneManager.LoadScene("MainMenu");
         }
