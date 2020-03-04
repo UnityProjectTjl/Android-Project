@@ -7,58 +7,101 @@ using UnityEngine.UI;
 
 public class RewardedAdManager : MonoBehaviour
 {
-    private RewardedAd removeAd;
-    public Button removeAdButton;
+    private RewardBasedVideoAd rewardBasedVideo;
+    public Button Ad100Coins;
+    private int personalizeAds;
 
     // Start is called before the first frame update
     void Start()
     {
-        string adUnitId;
         #if UNITY_ANDROID
-                adUnitId = "ca-app-pub-3484489003477619/4579794443";
+                string appId = "ca-app-pub-3484489003477619~5116842889";
         #elif UNITY_IPHONE
-                            adUnitId = "ca-app-pub-3484489003477619/4579794443";
+                        string appId = "ca-app-pub-3484489003477619~5116842889";
         #else
-                            adUnitId = "unexpected_platform";
+                        string appId = "unexpected_platform";
         #endif
 
-        this.removeAd = new RewardedAd(adUnitId);
+        // Initialize the Google Mobile Ads SDK.
+        MobileAds.Initialize(appId);
 
-        this.removeAd.OnAdOpening += HandleRewardedAdOpening;
+        // Get singleton reward based video ad reference.
+        this.rewardBasedVideo = RewardBasedVideoAd.Instance;
 
-        // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
-        // Load the rewarded ad with the request.
-        this.removeAd.LoadAd(request);
+        personalizeAds = PlayerPrefs.GetInt("personalizeAds");
 
-        checkNetworkConnection();
+        this.RequestRewardBasedVideo();
+
+        // Called when an ad request has successfully loaded.
+        rewardBasedVideo.OnAdLoaded += HandleRewardBasedVideoLoaded;
+
+        // Called when the user should be rewarded for watching a video.
+        rewardBasedVideo.OnAdRewarded += HandleRewardBasedVideoRewarded;
+
+        // Called when the ad is closed.
+        rewardBasedVideo.OnAdClosed += HandleRewardBasedVideoClosed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void checkNetworkConnection()
+    private void RequestRewardBasedVideo()
     {
-        if (Application.internetReachability == NetworkReachability.NotReachable)
+        #if UNITY_ANDROID
+                string adUnitId = "ca-app-pub-3484489003477619/4579794443";
+        #elif UNITY_IPHONE
+                            string adUnitId = "ca-app-pub-3484489003477619/4579794443";
+        #else
+                            string adUnitId = "unexpected_platform";
+        #endif
+
+        if (personalizeAds == 1)
         {
-            removeAdButton.interactable = false;
+            // Create an empty ad request.
+            AdRequest request = new AdRequest.Builder().Build();
+            // Load the rewarded video ad with the request.
+            this.rewardBasedVideo.LoadAd(request, adUnitId);
+        } else
+        {
+            // Create an empty ad request.
+            AdRequest request = new AdRequest.Builder()
+                .AddExtra("npa", "1")
+                .Build();
+            // Load the rewarded video ad with the request.
+            this.rewardBasedVideo.LoadAd(request, adUnitId);
         }
     }
 
-    public void HandleRewardedAdOpening(object sender, EventArgs args)
+    public void HandleRewardBasedVideoLoaded(object sender, EventArgs args)
     {
-        //Activate without Add Session
-        PlayerPrefs.SetInt("adActivated", 0);
+        Ad100Coins.interactable = true;
     }
 
-    public void removeAdsLoaded()
+    public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
-        if (this.removeAd.IsLoaded())
+        string type = args.Type;
+        double amount = args.Amount;
+
+        int coins = PlayerPrefs.GetInt("Coins");
+
+        PlayerPrefs.SetInt("Coins", coins + Convert.ToInt32(amount));
+    }
+
+    public void HandleRewardBasedVideoClosed(object sender, EventArgs args)
+    {
+        this.RequestRewardBasedVideo();
+
+        Ad100Coins.interactable = false;
+    }
+
+    public void UserOptToWatchAd()
+    {
+        if (rewardBasedVideo.IsLoaded())
         {
-            this.removeAd.Show();
+            rewardBasedVideo.Show();
         }
     }
 }

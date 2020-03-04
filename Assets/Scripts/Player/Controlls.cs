@@ -186,9 +186,6 @@ public class Controlls : MonoBehaviour
             if (Input.GetKey(KeyCode.Escape))
             {
                 SceneManager.LoadScene("MainMenu");
-
-                PlayerPrefs.SetInt("adActivated", 1);
-
                 return;
             }
         }

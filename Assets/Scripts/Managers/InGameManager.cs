@@ -10,12 +10,9 @@ public class InGameManager : MonoBehaviour
     public GameObject checkpoint, player;
     private int coins;
 
+    public Text Countdown;
+
     public float targetTime;
-
-    public InGameManager()
-    {
-
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +23,26 @@ public class InGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         targetTime -= Time.deltaTime;
 
         coins = PlayerPrefs.GetInt("Coins");
         points.text = coins.ToString();
+
+        Countdown.text = "Zeit: " + Mathf.Round(targetTime) + "s";
+       
+        if (targetTime > 15.0f)
+        {
+            Countdown.color = Color.green;
+        } else if (targetTime > 10.0f)
+        {
+            Countdown.color = Color.yellow;
+        } else if (targetTime < 5.0f)
+        {
+            Countdown.color = Color.red;
+        } 
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

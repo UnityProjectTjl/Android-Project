@@ -11,12 +11,21 @@ public class AdManager : MonoBehaviour
     public GameObject gameOverUI;
     public Text buttonText;
     private int activeScene;
+    private int personalizeAds;
 
     // Start is called before the first frame update
     void Start()
     {
+        #if UNITY_ANDROID
+        string appId = "ca-app-pub-3484489003477619~5116842889";
+        #elif UNITY_IPHONE
+                string appId = "ca-app-pub-3484489003477619~5116842889";
+        #else
+                string appId = "unexpected_platform";
+        #endif
+
         // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize(initStatus => { });
+        MobileAds.Initialize(appId);
 
         this.RequestInterstitial();
 
@@ -28,6 +37,8 @@ public class AdManager : MonoBehaviour
         {
             buttonText.text = "Zurück zum Menü";
         }
+
+        personalizeAds = PlayerPrefs.GetInt("personalizeAds");
     }
 
     // Update is called once per frame
@@ -49,9 +60,19 @@ public class AdManager : MonoBehaviour
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
 
-        AdRequest request = new AdRequest.Builder().Build();
-        // Load the interstitial with the request.
-        this.interstitial.LoadAd(request);
+        if (personalizeAds == 1)
+        {
+            AdRequest request = new AdRequest.Builder().Build();
+            // Load the interstitial with the request.
+            this.interstitial.LoadAd(request);
+        } else
+        {
+            AdRequest request = new AdRequest.Builder()
+                .AddExtra("npa", "1")
+                .Build();
+            // Load the interstitial with the request.
+            this.interstitial.LoadAd(request);
+        }
     }
 
     public void GameOver()
@@ -66,15 +87,10 @@ public class AdManager : MonoBehaviour
             PlayerPrefs.SetInt("levelPlayed", 1);
         }
 
-        int adActivated = PlayerPrefs.GetInt("adActivated");
-
-        if (adActivated == 1)
+        //Load Ad
+        if (this.interstitial.IsLoaded())
         {
-            //Load Ad
-            if (this.interstitial.IsLoaded())
-            {
-                this.interstitial.Show();
-            }
+            this.interstitial.Show();
         }
     }
 

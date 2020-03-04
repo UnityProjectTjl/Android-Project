@@ -189,7 +189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kaufen
+  m_Text: "W\xE4hlen"
 --- !u!222 &39093582
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5804,7 +5804,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1439347055}
-        m_MethodName: removeAdsLoaded
+        m_MethodName: UserOptToWatchAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6084,7 +6084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66ef30b1af8c1a40982234d87583d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeAdButton: {fileID: 0}
+  Ad100Coins: {fileID: 0}
 --- !u!4 &1439347056
 Transform:
   m_ObjectHideFlags: 0
@@ -6747,7 +6747,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Werbung entfernen (nur 1 Session)
+  m_Text: '100 Coins bekommen
+
+    (Werbung)'
 --- !u!222 &1918527284
 CanvasRenderer:
   m_ObjectHideFlags: 0

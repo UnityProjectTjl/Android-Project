@@ -18,6 +18,9 @@ public class ImageSwitcher : MonoBehaviour
     public Text bankText;
     public Text notEnoughText;
     private int coins;
+
+    private int buyedSkin1;
+    private int buyedSkin2;
     // Start is called before the first frame update
 
     void Start()
@@ -27,6 +30,9 @@ public class ImageSwitcher : MonoBehaviour
         vorschauSprite.sprite = skins[0];
 
         notEnoughText.enabled = false;
+
+        buyedSkin1 = PlayerPrefs.GetInt("BuyedSkin1");
+        buyedSkin2 = PlayerPrefs.GetInt("BuyedSkin2");
     }
 
     // Update is called once per frame
@@ -81,12 +87,27 @@ public class ImageSwitcher : MonoBehaviour
                 buyButton.GetComponentInChildren<Text>().text = "Wählen";
                 break;
             case 1:
-                costText.text = "800";
-                buyButton.GetComponentInChildren<Text>().text = "Kaufen";
+                if (buyedSkin1 == 1)
+                {
+                    costText.text = "0";
+                    buyButton.GetComponentInChildren<Text>().text = "Wählen";
+                } else
+                {
+                    costText.text = "800";
+                    buyButton.GetComponentInChildren<Text>().text = "Kaufen";
+                }
                 break;
             case 2:
-                costText.text = "1500";
-                buyButton.GetComponentInChildren<Text>().text = "Kaufen";
+                if (buyedSkin2 == 1)
+                {
+                    costText.text = "0";
+                    buyButton.GetComponentInChildren<Text>().text = "Wählen";
+                }
+                else
+                {
+                    costText.text = "1500";
+                    buyButton.GetComponentInChildren<Text>().text = "Kaufen";
+                }
                 break;
         }
 
@@ -108,6 +129,7 @@ public class ImageSwitcher : MonoBehaviour
                 {
                     coins -= 800;
                     PlayerPrefs.SetInt("Coins", coins);
+                    PlayerPrefs.SetInt("BuyedSkin1", 1);
 
                     costText.text = "800";
                     PlayerPrefs.SetInt("Player One", 1);
@@ -122,6 +144,7 @@ public class ImageSwitcher : MonoBehaviour
                 {
                     coins -= 1500;
                     PlayerPrefs.SetInt("Coins", coins);
+                    PlayerPrefs.SetInt("BuyedSkin2", 1);
 
                     costText.text = "1500";
                     PlayerPrefs.SetInt("Player One", 2);
