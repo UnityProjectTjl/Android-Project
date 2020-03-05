@@ -51,4 +51,9 @@ public class GdprHandler : MonoBehaviour
 
         GdprConsent.SetActive(false);
     }
+
+    public void ShowConsentAgain()
+    {
+        GdprConsent.SetActive(true);
+    }
 }

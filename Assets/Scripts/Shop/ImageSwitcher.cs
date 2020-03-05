@@ -43,7 +43,7 @@ public class ImageSwitcher : MonoBehaviour
     }
     public void ShowNextImage()
     {
-        if (this.ImageIndex <= skins.Length)
+        if (this.ImageIndex < skins.Length - 1)
         {
             //Ersten Skin laden
             this.ImageIndex++;
@@ -63,7 +63,7 @@ public class ImageSwitcher : MonoBehaviour
     {
         Debug.Log(this.ImageIndex);
         
-        if (this.ImageIndex >= 0)
+        if (this.ImageIndex > 0)
         {
             this.ImageIndex--;
             vorschauSprite.sprite = skins[this.ImageIndex];
@@ -134,6 +134,10 @@ public class ImageSwitcher : MonoBehaviour
                     costText.text = "800";
                     PlayerPrefs.SetInt("Player One", 1);
                 }
+                else if (buyedSkin1 == 1)
+                {
+                    PlayerPrefs.SetInt("Player One", 1);
+                } 
                 else
                 {
                     notEnoughText.enabled = true;
@@ -147,6 +151,10 @@ public class ImageSwitcher : MonoBehaviour
                     PlayerPrefs.SetInt("BuyedSkin2", 1);
 
                     costText.text = "1500";
+                    PlayerPrefs.SetInt("Player One", 2);
+                }
+                else if (buyedSkin2 == 1)
+                {
                     PlayerPrefs.SetInt("Player One", 2);
                 }
                 else
