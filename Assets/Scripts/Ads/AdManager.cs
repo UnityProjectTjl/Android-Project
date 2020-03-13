@@ -78,14 +78,8 @@ public class AdManager : MonoBehaviour
     public void GameOver()
     {
         gameOverUI.SetActive(true);
-
-        int levelPlayed = PlayerPrefs.GetInt("levelPlayed");
-
-        if (levelPlayed != 1)
-        {
-            PlayerPrefs.SetInt("levelReached", activeScene);
-            PlayerPrefs.SetInt("levelPlayed", 1);
-        }
+        
+        PlayerPrefs.SetInt("levelReached", activeScene);
 
         //Load Ad
         if (this.interstitial.IsLoaded())

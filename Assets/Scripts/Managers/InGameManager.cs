@@ -49,25 +49,25 @@ public class InGameManager : MonoBehaviour
         {
             if (targetTime >= 15.0f)
             {
-                coins += 500;
+                coins += 850;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
             else if (targetTime >= 10.0f)
             {
-                coins += 250;
+                coins += 500;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
             else if (targetTime >= 5.0f)
             {
-                coins += 100;
+                coins += 250;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
             else
             {
-                coins += 50;
+                coins += 100;
 
                 PlayerPrefs.SetInt("Coins", coins);
             }
@@ -92,7 +92,12 @@ public class InGameManager : MonoBehaviour
     {
         player.transform.position = checkpoint.transform.position;
 
-        coins -= 100;
-        PlayerPrefs.SetInt("Coins", coins);
+        int currentCoins = PlayerPrefs.GetInt("Coins");
+
+        if (currentCoins != 0)
+        {
+            coins -= 100;
+            PlayerPrefs.SetInt("Coins", coins);
+        }
     }
 }
