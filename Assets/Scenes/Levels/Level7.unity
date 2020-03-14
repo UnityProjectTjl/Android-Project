@@ -8156,6 +8156,11 @@ PrefabInstance:
       propertyPath: Countdown
       value: 
       objectReference: {fileID: 496880853}
+    - target: {fileID: 66232268493224467, guid: 9bf5686509377c04097345698dc0864c,
+        type: 3}
+      propertyPath: levelUnlockName
+      value: Level7-Unlock
+      objectReference: {fileID: 0}
     - target: {fileID: 66232268493224476, guid: 9bf5686509377c04097345698dc0864c,
         type: 3}
       propertyPath: m_LocalPosition.x

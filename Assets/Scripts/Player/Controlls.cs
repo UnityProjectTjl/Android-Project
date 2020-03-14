@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Controlls : MonoBehaviour
 {
     Vector2 startPos, endPos, distance;
-    public float speed, jumpspeed;
+    public float jumpspeed;
     public float toleranz;
     bool directionChosen;
     public Rigidbody2D rb2d;
@@ -31,70 +31,11 @@ public class Controlls : MonoBehaviour
                 {
                     //Spieler nach rechts bewegen
 
-                    //Stufe 1
-                    if (distance.x - toleranz <= 150)
-                    {
-                        //Sehr wenig force adden
-                        rb2d.AddForce(new Vector2(jumpspeed / 10, 0), ForceMode2D.Impulse);
+                    // f(x) = 0,000005315509431 * x^2 - 3,323342e-9 * x^3 
+                    distance.x = Mathf.Abs(distance.x);
+          
+                    rb2d.AddForce(new Vector2(0.000005315509431f * distance.x * distance.x - 3.323342e-9f * distance.x * distance.x * distance.x, 0) ,ForceMode2D.Impulse);
 
-                    }
-                    else
-                    //Stufe 2
-                    if (distance.x - toleranz <= 250 && distance.x - toleranz > 150)
-                    {
-                        rb2d.AddForce(new Vector2(jumpspeed / 10, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 3
-                    if (distance.x - toleranz <= 350 && distance.x - toleranz > 250)
-                    {
-                        //normal viel Force adden
-                        rb2d.AddForce(new Vector2(jumpspeed / 2, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 4
-                    if (distance.x - toleranz <= 450 && distance.x - toleranz > 350)
-                    {
-                        //Normal viel force adden
-                        rb2d.AddForce(new Vector2(jumpspeed / 2, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 5
-                    if (distance.x - toleranz <= 550 && distance.x - toleranz > 450)
-                    {
-                        rb2d.AddForce(new Vector2(jumpspeed, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 6
-                    if (distance.x - toleranz <= 650 && distance.x - toleranz > 550)
-                    {
-                        rb2d.AddForce(new Vector2(jumpspeed * 1.2f, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 7
-                    if (distance.x - toleranz <= 750 && distance.x - toleranz > 650)
-                    {
-                        rb2d.AddForce(new Vector2(jumpspeed * 1.4f, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 8
-                    if (distance.x - toleranz <= 850 && distance.x - toleranz > 750)
-                    {
-                        rb2d.AddForce(new Vector2(jumpspeed * 1.6f, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 9
-                    if (distance.x - toleranz <= 950 && distance.x - toleranz > 850)
-                    {
-                        rb2d.AddForce(new Vector2(jumpspeed * 1.8f, 0), ForceMode2D.Impulse);
-                    }
-                    else
-                    //Stufe 10
-                   if (distance.x - toleranz >= 1000)
-                    {
-                        //Krass viel Force adden
-                        rb2d.AddForce(new Vector2(jumpspeed *2, 0), ForceMode2D.Impulse);
-                    }
 
 
                 }
@@ -189,7 +130,7 @@ public class Controlls : MonoBehaviour
                 return;
             }
         }
-       
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

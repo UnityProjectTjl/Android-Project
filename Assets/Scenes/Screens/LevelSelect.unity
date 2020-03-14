@@ -1706,6 +1706,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1846310a608760e47aa26a9ba7009802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button:
+  - {fileID: 1002083208}
+  - {fileID: 222086056}
+  - {fileID: 248606046}
+  - {fileID: 1855572241}
+  - {fileID: 540818788}
+  - {fileID: 1493773924}
+  - {fileID: 315758429}
+  - {fileID: 626021765}
+  - {fileID: 837994990}
+  - {fileID: 74955186}
+  - {fileID: 1794228050}
 --- !u!4 &988430703
 Transform:
   m_ObjectHideFlags: 0

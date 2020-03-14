@@ -13,6 +13,7 @@ public class InGameManager : MonoBehaviour
     public Text Countdown;
 
     public float targetTime;
+    public string levelUnlockName;
 
     // Start is called before the first frame update
     void Start()
@@ -72,13 +73,14 @@ public class InGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Coins", coins);
             }
         }
+        PlayerPrefs.SetInt(levelUnlockName, 1);
 
         FindObjectOfType<AdManager>().GameOver();
     }
 
     public void CoinCollected()
     {
-        coins += 1;
+        coins += 50;
 
         PlayerPrefs.SetInt("Coins", coins);
     }
