@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RewardedAdManager : MonoBehaviour
 {
     private RewardBasedVideoAd rewardBasedVideo;
-    public Button Ad100Coins;
+    public Button Ad500Coins;
     private int personalizeAds;
 
     // Start is called before the first frame update
@@ -77,7 +77,7 @@ public class RewardedAdManager : MonoBehaviour
 
     public void HandleRewardBasedVideoLoaded(object sender, EventArgs args)
     {
-        Ad100Coins.interactable = true;
+        Ad500Coins.interactable = true;
     }
 
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
@@ -94,7 +94,7 @@ public class RewardedAdManager : MonoBehaviour
     {
         this.RequestRewardBasedVideo();
 
-        Ad100Coins.interactable = false;
+        Ad500Coins.interactable = false;
     }
 
     public void UserOptToWatchAd()

@@ -6084,7 +6084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66ef30b1af8c1a40982234d87583d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ad100Coins: {fileID: 0}
+  Ad500Coins: {fileID: 1252419177}
 --- !u!4 &1439347056
 Transform:
   m_ObjectHideFlags: 0
@@ -6665,7 +6665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1846310a608760e47aa26a9ba7009802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: []
 --- !u!4 &1900018456
 Transform:
   m_ObjectHideFlags: 0

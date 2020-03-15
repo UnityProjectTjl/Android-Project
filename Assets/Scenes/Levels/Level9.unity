@@ -1620,10 +1620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e771fdbdd53d32945b081657953c594c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   jumpspeed: 10
   toleranz: 200
-  rb2d: {fileID: 0}
+  rb2d: {fileID: 1905242693}
 --- !u!4 &891418708
 Transform:
   m_ObjectHideFlags: 0
@@ -7885,6 +7884,12 @@ Transform:
 --- !u!1 &1905242692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2680424046617737161, guid: 520550ab7f27fa5478db8b1523b49722,
+    type: 3}
+  m_PrefabInstance: {fileID: 1905242690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1905242693 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2680424046617737158, guid: 520550ab7f27fa5478db8b1523b49722,
     type: 3}
   m_PrefabInstance: {fileID: 1905242690}
   m_PrefabAsset: {fileID: 0}

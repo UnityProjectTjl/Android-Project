@@ -6505,6 +6505,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1498541459}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1498541462 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2680424046617737158, guid: 520550ab7f27fa5478db8b1523b49722,
+    type: 3}
+  m_PrefabInstance: {fileID: 1498541459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1634510665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7399,10 +7405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e771fdbdd53d32945b081657953c594c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   jumpspeed: 10
   toleranz: 200
-  rb2d: {fileID: 0}
+  rb2d: {fileID: 1498541462}
 --- !u!4 &1901521925
 Transform:
   m_ObjectHideFlags: 0
