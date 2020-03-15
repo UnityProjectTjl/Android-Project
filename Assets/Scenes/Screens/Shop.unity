@@ -6665,6 +6665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1846310a608760e47aa26a9ba7009802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: []
 --- !u!4 &1900018456
 Transform:
   m_ObjectHideFlags: 0
@@ -6747,7 +6748,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '100 Coins bekommen
+  m_Text: '500 Coins bekommen
 
     (Werbung)'
 --- !u!222 &1918527284
