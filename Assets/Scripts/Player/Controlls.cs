@@ -29,15 +29,7 @@ public class Controlls : MonoBehaviour
             {
                 if (distance.x >= toleranz)
                 {
-                    //Spieler nach rechts bewegen
-
-                    // f(x) = 0,000005315509431 * x^2 - 3,323342e-9 * x^3 
-                    distance.x = Mathf.Abs(distance.x);
-          
-                    rb2d.AddForce(new Vector2(0.000005315509431f * distance.x * distance.x - 3.323342e-9f * distance.x * distance.x * distance.x, 0) ,ForceMode2D.Impulse);
-
-
-
+                    rb2d.AddForce(new Vector2(jumpspeed, 0), ForceMode2D.Impulse);
                 }
 
 
