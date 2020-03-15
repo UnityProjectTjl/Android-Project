@@ -75,6 +75,22 @@ public class Controlls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb2d.AddForce(new Vector2(0, jumpspeed), ForceMode2D.Impulse);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            rb2d.AddForce(new Vector2(-jumpspeed, 0), ForceMode2D.Impulse);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            rb2d.AddForce(new Vector2(0, -jumpspeed), ForceMode2D.Impulse);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb2d.AddForce(new Vector2(jumpspeed, 0), ForceMode2D.Impulse);
+        }
         print("Touches: " + Input.touchCount);
 
         if (Input.touchCount == 3)
@@ -106,6 +122,10 @@ public class Controlls : MonoBehaviour
                     Debug.Log("Start: " + startPos + "Ende: " + endPos + " Distanz: " + distance);
                     directionChosen = true;
                     break;
+
+
+
+                  
 
             }
 
