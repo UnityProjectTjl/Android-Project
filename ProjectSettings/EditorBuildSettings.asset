@@ -50,4 +50,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Screens/Shop.unity
     guid: 5cd5a22a95b47014587560800d6c1b70
+  - enabled: 1
+    path: Assets/Scenes/Screens/CheatMenu.unity
+    guid: b64d38e436cd3c645a62246c4a19d6ae
+  - enabled: 1
+    path: "Assets/Scenes/Screens/Passwort\xDCberpr\xFCfen.unity"
+    guid: 91195656e2b9ffc4ea5240326785a9c3
   m_configObjects: {}
