@@ -18,14 +18,12 @@ public class LevelUnlockManager : MonoBehaviour
     {
         coins = PlayerPrefs.GetInt("Coins");
         levelBuyed = PlayerPrefs.GetInt("levelBuyed");
+        PlayerPrefs.SetInt("Level1-Unlock", 1);
 
         notEnoughText.enabled = false;
         okButton.SetActive(false); 
 
-        if (PlayerPrefs.GetInt("Level1-Unlock") != 1)
-        {
-            button[0].interactable = false;
-        }
+       
         if (PlayerPrefs.GetInt("Level2-Unlock") != 1)
         {
             button[1].interactable = false;
@@ -54,6 +52,7 @@ public class LevelUnlockManager : MonoBehaviour
         {
             button[7].interactable = false;
         }
+        /*
         if (PlayerPrefs.GetInt("Level9-Unlock") != 1)
         {
             button[8].interactable = false;
@@ -70,6 +69,7 @@ public class LevelUnlockManager : MonoBehaviour
         {
             button[11].interactable = false;
         }
+        */
     }
 
     // Update is called once per frame

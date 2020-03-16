@@ -15,10 +15,10 @@ public class CheatCodeÜberprüfer : MonoBehaviour
             SceneManager.LoadScene("CheatMenu");
             print(password.text);
         }
-       
-
-        
-
+    }
+    public void AdminLogin()
+    {
+        SceneManager.LoadScene("PasswortÜberprüfen");
     }
 
   
